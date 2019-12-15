@@ -114,4 +114,10 @@ return [
 
     'password_timeout' => 10800,
 
+    'api_appointments' => [
+        'username'  => env('API_APPOINTMENTS_USERNAME'),
+        'password'  => env('API_APPOINTMENTS_PASSWORD'),
+        'uri'       => env('API_APPOINTMENTS_URI'),
+    ]
+
 ];

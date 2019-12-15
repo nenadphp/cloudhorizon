@@ -3,7 +3,7 @@
 namespace App\Exceptions;
 
 use Exception;
-use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\Log;
 
 class CustomException extends Exception
 {
@@ -14,8 +14,10 @@ class CustomException extends Exception
      */
     public function report()
     {
-        //TODO inform admin
-        dd($this->getMessage());
+        Log::info('start at -'. now());
+        Log::info($this->getMessage());
+        Log::info($this->getTraceAsString());
+        Log::info('end');
     }
 
     /**

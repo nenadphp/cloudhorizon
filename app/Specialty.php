@@ -2,17 +2,21 @@
 
 namespace App;
 
-use App\ApiDataInterfaces\ApiStoreDataInterface;
 use Illuminate\Database\Eloquent\Model;
 
-class Specialty extends Model implements ApiStoreDataInterface
+class Specialty extends Model
 {
     /**
-     * @param \SimpleXMLElement $data
-     * @return mixed|void
+     * @var array
      */
-    public function processData(\SimpleXMLElement $data)
-    {
-        // TODO: Implement processData() method.
-    }
+    protected $fillable = [
+        'speciality_id',
+        'doctor_id',
+        'name'
+    ];
+
+    /**
+     * @var string $table
+     */
+    protected $table = 'specialities';
 }

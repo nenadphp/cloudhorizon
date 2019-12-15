@@ -11,13 +11,4 @@ use Illuminate\Routing\Controller as BaseController;
 class Controller extends BaseController
 {
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
-
-    public function homeTest()
-    {
-        try{
-
-        }catch (\Exception $e) {
-            throw new CustomException($e);
-        }
-    }
 }

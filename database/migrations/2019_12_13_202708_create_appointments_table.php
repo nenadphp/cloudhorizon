@@ -14,13 +14,13 @@ class CreateAppointmentsTable extends Migration
     public function up()
     {
         Schema::create('appointments', function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->bigInteger('external_id')->primary();
             $table->bigInteger('patient_id')->unsigned();
             $table->bigInteger('doctor_id')->unsigned();
             $table->tinyInteger('is_cancelled')->default(0);
-            $table->string('start_date')->default(null);
-            $table->string('start_time')->default(null);
-            $table->string('booked_at')->default(null);
+            $table->date('start_date')->default(null);
+            $table->time('start_time')->default(null);
+            $table->dateTime('booked_at')->default(null);
             $table->timestamps();
         });
     }

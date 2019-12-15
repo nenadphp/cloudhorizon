@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateClinicsTable extends Migration
+class CreatePatientsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,12 @@ class CreateClinicsTable extends Migration
      */
     public function up()
     {
-        Schema::create('clinics', function (Blueprint $table) {
-            $table->bigInteger('clinic_id')->unsigned();
-            $table->bigInteger('doctor_id')->unsigned();
+        Schema::create('patients', function (Blueprint $table) {
+            $table->integer('patient_id')->primary();
+            $table->integer('doctor_id')->unsigned();
             $table->string('name', 256);
+            $table->string('date_of_birth');
+            $table->enum('sex', [1,2,3]);
             $table->timestamps();
         });
     }
@@ -24,10 +26,10 @@ class CreateClinicsTable extends Migration
     /**
      * Reverse the migrations.
      *
-     * @return void
+     * @return voiddate_of_birth
      */
     public function down()
     {
-        Schema::dropIfExists('clinics');
+        Schema::dropIfExists('patients');
     }
 }
